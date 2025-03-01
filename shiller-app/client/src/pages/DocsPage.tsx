@@ -13,20 +13,6 @@ const DocsPage: React.FC = () => {
           The platform facilitates authentic word-of-mouth marketing for Solana memecoins by rewarding users for 
           successful promotions and engagements.
         </p>
-        <div className="bg-[#24272e] border border-[#282b33] rounded-lg p-4 mb-6">
-          <div className="flex items-center mb-2">
-            <svg className="w-5 h-5 text-[#97ef83] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-            <span className="text-[#97ef83] font-medium">Why Solana?</span>
-          </div>
-          <p className="text-[#a8aab0] text-sm">
-            Solana's high throughput, low transaction costs, and vibrant memecoin ecosystem make it the perfect 
-            blockchain for our platform. With transaction speeds of up to 65,000 TPS and costs as low as $0.00025 per 
-            transaction, Shillster can operate efficiently while providing the best experience for both token creators 
-            and promoters.
-          </p>
-        </div>
       </section>
       
       <section className="mb-10">
@@ -89,7 +75,6 @@ const DocsPage: React.FC = () => {
           <h4 className="text-lg font-semibold text-[#fbfcff] mb-2">Requirements:</h4>
           <ul className="list-disc pl-6 text-[#a8aab0] space-y-1 mb-4">
             <li>Minimum follower count (platform-defined threshold)</li>
-            <li>Verification of identity</li>
             <li>Agreement to platform terms and conditions</li>
             <li>Completed profile with all required information</li>
           </ul>
@@ -98,7 +83,6 @@ const DocsPage: React.FC = () => {
           <ol className="list-decimal pl-6 text-[#a8aab0] space-y-2">
             <li>Submit your application through your profile settings</li>
             <li>Platform administrators review your application</li>
-            <li>You may be asked to provide additional verification</li>
             <li>Once approved, you gain access to Shiller-specific features</li>
           </ol>
         </div>
