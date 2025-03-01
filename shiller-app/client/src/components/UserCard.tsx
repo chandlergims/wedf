@@ -16,13 +16,13 @@ const getApiUrl = (endpoint: string) => {
 };
 
 // Helper function for profile picture URLs
-const getImageUrl = (path: string, userId: string) => {
+const getImageUrl = (path: string) => {
   if (!path) return 'https://via.placeholder.com/50';
   // If path already starts with http or https, return as is
   if (path.startsWith('http')) return path;
   
-  // Use the new image API endpoint
-  return `/api/images/profile/${userId}`;
+  // Just return a placeholder image
+  return 'https://via.placeholder.com/50';
 };
 
 interface UserCardProps {
@@ -65,7 +65,7 @@ const UserCard = ({ user, isShiller = false, onFollow }: UserCardProps) => {
         <div className="w-12 h-12 rounded-full overflow-hidden mr-4">
           {user.profilePicture ? (
             <img
-              src={getImageUrl(user.profilePicture, user._id)}
+              src={getImageUrl(user.profilePicture)}
               alt={user.handle}
               className="w-full h-full object-cover"
               onError={(e) => {

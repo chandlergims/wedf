@@ -56,7 +56,7 @@ const NewUsersSection = ({
         <div className="flex items-center">
           {user.profilePicture ? (
             <img 
-              src={`/api/images/profile/${user._id}`} 
+              src={'https://via.placeholder.com/50'} 
               alt={user.handle}
               className="w-8 h-8 rounded-full object-cover mr-3"
               onError={(e) => {

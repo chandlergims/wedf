@@ -44,7 +44,7 @@ const FollowRequestCard = ({ request, onAction }: FollowRequestCardProps) => {
           {request.requester.profilePicture ? (
             <>
               <img
-                src={`/api/images/profile/${request.requester._id}`}
+                src={'https://via.placeholder.com/50'}
                 alt={request.requester.handle}
                 className="w-full h-full object-cover"
                 onError={(e) => {

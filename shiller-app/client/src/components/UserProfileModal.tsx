@@ -48,7 +48,7 @@ const UserProfileModal = ({ user, isOpen, onClose, onFollowSuccess }: UserProfil
             {user.profilePicture ? (
               <>
                 <img 
-                  src={`/api/images/profile/${user._id}`} 
+                  src={'https://via.placeholder.com/100'} 
                   alt={user.handle}
                   className="w-full h-full object-cover rounded-full"
                   onError={(e) => {

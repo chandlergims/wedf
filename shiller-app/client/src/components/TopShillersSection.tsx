@@ -57,10 +57,10 @@ const TopShillersSection = ({
       >
         <div className="flex items-center">
           {shiller.profilePicture ? (
-            <img 
-              src={`/api/images/profile/${shiller._id}`} 
-              alt={shiller.handle}
-              className="w-8 h-8 rounded-full object-cover mr-3"
+                    <img 
+                      src={'https://via.placeholder.com/50'}
+                      alt={shiller.handle}
+                      className="w-8 h-8 rounded-full object-cover mr-3"
               onError={(e) => {
                 // Fallback to letter if image fails to load
                 const target = e.target as HTMLImageElement;
