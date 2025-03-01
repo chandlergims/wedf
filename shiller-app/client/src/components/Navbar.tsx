@@ -56,7 +56,7 @@ const Navbar = () => {
                 >
                   {state.user?.profilePicture ? (
                     <img 
-                      src={`${API_URL}${state.user.profilePicture}`}
+                      src={`/api/images/profile/${state.user._id}`}
                       alt={state.user.handle}
                       className="w-8 h-8 rounded-full object-cover border border-[#97ef83]"
                       onError={(e) => {
@@ -84,7 +84,7 @@ const Navbar = () => {
                     <div className="py-2 px-3 bg-[#24272e] border-b border-[#282b33] flex items-center">
                       {state.user?.profilePicture ? (
                         <img 
-                          src={`${API_URL}${state.user.profilePicture}`}
+                          src={`/api/images/profile/${state.user._id}`}
                           alt={state.user.handle}
                           className="w-8 h-8 rounded-full object-cover mr-2"
                         />
