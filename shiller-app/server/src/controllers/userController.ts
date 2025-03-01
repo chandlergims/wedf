@@ -165,7 +165,7 @@ export const getTopShillers = async (req: Request, res: Response): Promise<void>
     const shillers = await User.find({ role: 'shiller' })
       .sort({ points: -1 })
       .limit(10)
-      .select('-password -walletAddress'); // Exclude password and wallet address
+      .select('handle followers shills -_id'); // Only include handle, followers, and shills
     res.json(shillers);
   } catch (error) {
     res.status(500).json({ 

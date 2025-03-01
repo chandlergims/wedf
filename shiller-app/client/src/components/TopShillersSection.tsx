@@ -52,33 +52,13 @@ const TopShillersSection = ({
     // Ensure topShillers is an array before calling slice and map
     return Array.isArray(topShillers) ? topShillers.slice(0, 6).map((shiller) => (
       <div 
-        key={shiller._id} 
+        key={shiller.handle} 
         className="bg-[#24272e] border border-[#282b33] p-3 hover:border-[#97ef83]/30 transition-colors duration-200 rounded-lg"
       >
         <div className="flex items-center">
-          {shiller.profilePicture ? (
-                    <img 
-                      src={'https://via.placeholder.com/50'}
-                      alt={shiller.handle}
-                      className="w-8 h-8 rounded-full object-cover mr-3"
-              onError={(e) => {
-                // Fallback to letter if image fails to load
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-                const parent = target.parentElement;
-                if (parent) {
-                  const fallback = document.createElement('div');
-                  fallback.className = "w-8 h-8 bg-[#97ef83] rounded-full flex items-center justify-center text-[#1b1d22] font-bold mr-3";
-                  fallback.textContent = shiller.handle.charAt(0).toUpperCase();
-                  parent.insertBefore(fallback, target.nextSibling);
-                }
-              }}
-            />
-          ) : (
-            <div className="w-8 h-8 bg-[#97ef83] rounded-full flex items-center justify-center text-[#1b1d22] font-bold mr-3">
-              {shiller.handle.charAt(0).toUpperCase()}
-            </div>
-          )}
+          <div className="w-8 h-8 bg-[#97ef83] rounded-full flex items-center justify-center text-[#1b1d22] font-bold mr-3">
+            {shiller.handle.charAt(0).toUpperCase()}
+          </div>
           <div>
             <div className="text-[#fbfcff]">@{shiller.handle}</div>
             <div className="text-[#a8aab0] text-xs">
@@ -86,18 +66,16 @@ const TopShillersSection = ({
               <span className="text-[#97ef83] ml-1">{shiller.shills || 0}</span> shills
             </div>
           </div>
-          {/* Only show follow button if not the current user */}
-          {(!currentUserId || shiller._id !== currentUserId) && (
-            <button 
-              className="ml-auto w-6 h-6 border border-[#97ef83] hover:bg-[#97ef83]/10 transition-colors duration-200 flex items-center justify-center rounded-md"
-              onClick={(e) => {
-                e.stopPropagation(); // Prevent opening the modal when clicking the follow button
-                handleFollowUser(shiller._id, shiller.handle);
-              }}
-            >
-              <span className="text-[#97ef83] text-xs">+</span>
-            </button>
-          )}
+          {/* Always show follow button since we can't compare IDs anymore */}
+          <button 
+            className="ml-auto w-6 h-6 border border-[#97ef83] hover:bg-[#97ef83]/10 transition-colors duration-200 flex items-center justify-center rounded-md"
+            onClick={(e) => {
+              e.stopPropagation(); // Prevent opening the modal when clicking the follow button
+              handleFollowUser(shiller.handle, shiller.handle);
+            }}
+          >
+            <span className="text-[#97ef83] text-xs">+</span>
+          </button>
         </div>
       </div>
     )) : (
