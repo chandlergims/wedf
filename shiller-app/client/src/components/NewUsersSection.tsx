@@ -4,12 +4,6 @@ import { toast } from 'react-toastify';
 import NewShillsSection from './NewShillsSection';
 import RewardsSection from './RewardsSection';
 
-// Helper function for profile picture URLs
-const getImageUrl = (userId: string) => {
-  if (!userId) return '';
-  return `/api/images/profile/${userId}`;
-};
-
 interface NewUsersSectionProps {
   newUsers: User[];
   loadingNewUsers: boolean;
@@ -54,29 +48,10 @@ const NewUsersSection = ({
         className="bg-[#24272e] border border-[#282b33] p-3 hover:border-[#97ef83]/30 transition-colors duration-200 rounded-lg"
       >
         <div className="flex items-center">
-          {user.profilePicture ? (
-            <img 
-              src={'https://via.placeholder.com/50'} 
-              alt={user.handle}
-              className="w-8 h-8 rounded-full object-cover mr-3"
-              onError={(e) => {
-                // Fallback to letter if image fails to load
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-                const parent = target.parentElement;
-                if (parent) {
-                  const fallback = document.createElement('div');
-                  fallback.className = "w-8 h-8 bg-[#4779ff] rounded-full flex items-center justify-center text-white font-bold mr-3";
-                  fallback.textContent = user.handle.charAt(0).toUpperCase();
-                  parent.insertBefore(fallback, target.nextSibling);
-                }
-              }}
-            />
-          ) : (
-            <div className="w-8 h-8 bg-[#4779ff] rounded-full flex items-center justify-center text-white font-bold mr-3">
-              {user.handle.charAt(0).toUpperCase()}
-            </div>
-          )}
+          {/* Always use the green profile picture */}
+          <div className="w-8 h-8 bg-[#97ef83] rounded-full flex items-center justify-center text-[#1b1d22] font-bold mr-4">
+            {user.handle.charAt(0).toUpperCase()}
+          </div>
           <div>
             <div className="text-[#fbfcff]">@{user.handle}</div>
             <div className="text-[#a8aab0] text-xs">Joined 2/25/2025</div>

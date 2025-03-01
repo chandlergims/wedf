@@ -74,17 +74,17 @@ const UserCard = ({ user, isShiller = false, onFollow }: UserCardProps) => {
                 target.style.display = 'none';
                 const parent = target.parentElement;
                 if (parent) {
-                  parent.classList.add('bg-green-500', 'flex', 'items-center', 'justify-center');
+                  parent.classList.add('bg-[#97ef83]', 'flex', 'items-center', 'justify-center');
                   const fallback = document.createElement('span');
-                  fallback.className = "text-white font-bold text-lg";
+                  fallback.className = "text-[#1b1d22] font-bold text-lg";
                   fallback.textContent = user.handle.charAt(0).toUpperCase();
                   parent.appendChild(fallback);
                 }
               }}
             />
           ) : (
-            <div className="w-full h-full bg-green-500 flex items-center justify-center">
-              <span className="text-white font-bold text-lg">{user.handle.charAt(0).toUpperCase()}</span>
+            <div className="w-full h-full bg-[#97ef83] flex items-center justify-center">
+              <span className="text-[#1b1d22] font-bold text-lg">{user.handle.charAt(0).toUpperCase()}</span>
             </div>
           )}
         </div>

@@ -15,23 +15,6 @@ const getApiUrl = (endpoint: string) => {
   return `${API_URL}/api${endpoint}`;
 };
 
-// Helper function for profile picture URLs
-const getImageUrl = (path: string) => {
-  if (!path) return '';
-  // If path already starts with http or https, return as is
-  if (path.startsWith('http')) return path;
-  
-  // If path starts with /uploads, it's a static file path, not an API endpoint
-  if (path.startsWith('/uploads')) {
-    // For static files, we don't need the API_URL at all, just use the path directly
-    // This is because uploads are served from the root of the domain
-    return path;
-  }
-  
-  // For API endpoints, use the full API_URL
-  return path.startsWith('/') ? `${API_URL}${path}` : `${API_URL}/${path}`;
-};
-
 interface NewShillInfo {
   _id: string;
   creator: {
@@ -90,29 +73,10 @@ const NewShillsSection = () => {
             {newShills.map((shill) => (
               <div key={shill._id} className="bg-[#1b1d22] border border-[#282b33] p-3 rounded-lg">
                 <div className="flex items-center">
-                  {shill.creator.profilePicture ? (
-                    <img 
-                      src={`/api/images/profile/${shill.creator._id}`} 
-                      alt={shill.creator.handle} 
-                      className="w-10 h-10 rounded-full object-cover mr-3 border border-[#282b33]"
-                      onError={(e) => {
-                        // Fallback to letter if image fails to load
-                        const target = e.target as HTMLImageElement;
-                        target.style.display = 'none';
-                        const parent = target.parentElement;
-                        if (parent) {
-                          const fallback = document.createElement('div');
-                          fallback.className = "w-10 h-10 bg-[#4779ff] rounded-full flex items-center justify-center text-white font-bold border border-[#4779ff]";
-                          fallback.textContent = shill.creator.handle.charAt(0).toUpperCase();
-                          parent.insertBefore(fallback, target);
-                        }
-                      }}
-                    />
-                  ) : (
-                    <div className="w-10 h-10 bg-[#4779ff] rounded-full flex items-center justify-center text-white font-bold mr-3">
-                      {shill.creator.handle.charAt(0).toUpperCase()}
-                    </div>
-                  )}
+                  {/* Always use the green profile picture */}
+                  <div className="w-10 h-10 bg-[#97ef83] rounded-full flex items-center justify-center text-[#1b1d22] font-bold mr-4 border border-[#97ef83]">
+                    {shill.creator.handle.charAt(0).toUpperCase()}
+                  </div>
                   <div>
                     <div className="text-[#fbfcff] font-medium">@{shill.creator.handle}</div>
                     <div className="text-xs text-[#a8aab0]">

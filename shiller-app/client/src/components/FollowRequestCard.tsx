@@ -57,17 +57,17 @@ const FollowRequestCard = ({ request, onAction }: FollowRequestCardProps) => {
               />
               {/* Fallback element (hidden by default) */}
               <div 
-                className="w-full h-full bg-[#4779ff] absolute top-0 left-0 flex items-center justify-center"
+                className="w-full h-full bg-[#97ef83] absolute top-0 left-0 flex items-center justify-center text-[#1b1d22]"
                 style={{ display: 'none' }}
               >
-                <span className="text-white font-bold text-lg">
+                <span className="text-[#1b1d22] font-bold text-lg">
                   {request.requester.handle.charAt(0).toUpperCase()}
                 </span>
               </div>
             </>
           ) : (
-            <div className="w-full h-full bg-[#4779ff] flex items-center justify-center">
-              <span className="text-white font-bold text-lg">
+            <div className="w-full h-full bg-[#97ef83] flex items-center justify-center">
+              <span className="text-[#1b1d22] font-bold text-lg">
                 {request.requester.handle.charAt(0).toUpperCase()}
               </span>
             </div>

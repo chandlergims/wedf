@@ -61,14 +61,14 @@ const UserProfileModal = ({ user, isOpen, onClose, onFollowSuccess }: UserProfil
                 />
                 {/* Fallback element (hidden by default) */}
                 <div 
-                  className="w-full h-full bg-green-500 rounded-full absolute top-0 left-0 flex items-center justify-center text-white font-bold text-xl"
+                  className="w-full h-full bg-[#97ef83] rounded-full absolute top-0 left-0 flex items-center justify-center text-[#1b1d22] font-bold text-xl"
                   style={{ display: 'none' }}
                 >
                   {user.handle.charAt(0).toUpperCase()}
                 </div>
               </>
             ) : (
-              <div className="w-full h-full bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-xl">
+              <div className="w-full h-full bg-[#97ef83] rounded-full flex items-center justify-center text-[#1b1d22] font-bold text-xl">
                 {user.handle.charAt(0).toUpperCase()}
               </div>
             )}

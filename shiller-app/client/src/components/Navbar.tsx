@@ -39,13 +39,32 @@ const Navbar = () => {
       <nav className="bg-[#1b1d22] text-[#fbfcff] py-3 border-b border-[#282b33] shadow-md">
         <div className="container mx-auto flex justify-between items-center px-6">
           <Link to="/" className="text-xl font-bold text-[#fbfcff] flex items-center font-mono">
-            <div className="w-7 h-7 bg-[#97ef83] rounded-md flex items-center justify-center text-[#1b1d22] font-bold mr-2">
-              $
-            </div>
-            <span className="tracking-wider">SHILLSTER</span>
+            <img src="/logo.png" alt="Shillster Logo" className="h-8" />
           </Link>
 
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-4">
+            <Link 
+              to="/docs" 
+              className="text-[#fbfcff] hover:text-[#97ef83] transition-colors duration-200 text-sm font-medium px-3 py-1.5 rounded-lg border border-[#282b33] hover:border-[#97ef83]/50 hover:bg-[#97ef83]/5"
+            >
+              <span className="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-1.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Docs
+              </span>
+            </Link>
+            <a 
+              href="https://x.com/shillsterdotapp" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-[#97ef83] hover:text-[#97ef83]/80 transition-colors duration-200"
+              aria-label="Twitter"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
             
             {state.isAuthenticated ? (
               <div className="relative" ref={dropdownRef}>
@@ -73,7 +92,7 @@ const Navbar = () => {
                       }}
                     />
                   ) : (
-                    <div className="w-8 h-8 bg-[#4779ff] rounded-full flex items-center justify-center text-white font-bold border border-[#4779ff]">
+                    <div className="w-8 h-8 bg-[#97ef83] rounded-full flex items-center justify-center text-[#1b1d22] font-bold border border-[#97ef83]">
                       {state.user?.handle ? state.user.handle.charAt(0).toUpperCase() : 'U'}
                     </div>
                   )}
@@ -89,7 +108,7 @@ const Navbar = () => {
                           className="w-8 h-8 rounded-full object-cover mr-2"
                         />
                       ) : (
-                        <div className="w-8 h-8 bg-[#4779ff] rounded-full flex items-center justify-center text-white font-bold mr-2">
+                        <div className="w-8 h-8 bg-[#97ef83] rounded-full flex items-center justify-center text-[#1b1d22] font-bold mr-2">
                           {state.user?.handle ? state.user.handle.charAt(0).toUpperCase() : 'U'}
                         </div>
                       )}

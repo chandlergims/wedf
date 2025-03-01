@@ -68,14 +68,14 @@ const TopShillersSection = ({
                 const parent = target.parentElement;
                 if (parent) {
                   const fallback = document.createElement('div');
-                  fallback.className = "w-8 h-8 bg-[#4779ff] rounded-full flex items-center justify-center text-white font-bold mr-3";
+                  fallback.className = "w-8 h-8 bg-[#97ef83] rounded-full flex items-center justify-center text-[#1b1d22] font-bold mr-3";
                   fallback.textContent = shiller.handle.charAt(0).toUpperCase();
                   parent.insertBefore(fallback, target.nextSibling);
                 }
               }}
             />
           ) : (
-            <div className="w-8 h-8 bg-[#4779ff] rounded-full flex items-center justify-center text-white font-bold mr-3">
+            <div className="w-8 h-8 bg-[#97ef83] rounded-full flex items-center justify-center text-[#1b1d22] font-bold mr-3">
               {shiller.handle.charAt(0).toUpperCase()}
             </div>
           )}

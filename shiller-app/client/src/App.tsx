@@ -4,6 +4,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
+import DocsPage from './pages/DocsPage';
 import './App.css';
 import { defaultToastStyle } from './utils/toastStyles';
 
@@ -30,6 +31,7 @@ function App() {
           <main className="pb-12">
             <Routes>
               <Route path="/" element={<HomePage />} />
+              <Route path="/docs" element={<DocsPage />} />
               {/* Add more routes as needed */}
             </Routes>
           </main>

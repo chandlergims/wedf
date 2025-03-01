@@ -2,23 +2,6 @@ import { FollowRequest } from '../types';
 import { pendingToast } from '../utils/toastStyles';
 import RewardsSection from './RewardsSection';
 
-// Helper function for profile picture URLs
-const getImageUrl = (path: string, baseUrl: string) => {
-  if (!path) return '';
-  // If path already starts with http or https, return as is
-  if (path.startsWith('http')) return path;
-  
-  // If path starts with /uploads, it's a static file path, not an API endpoint
-  if (path.startsWith('/uploads')) {
-    // For static files, we don't need the API_URL at all, just use the path directly
-    // This is because uploads are served from the root of the domain
-    return path;
-  }
-  
-  // For API endpoints, use the full baseUrl
-  return path.startsWith('/') ? `${baseUrl}${path}` : `${baseUrl}/${path}`;
-};
-
 interface FollowRequestsSectionProps {
   pendingRequests: FollowRequest[];
   loadingRequests: boolean;
@@ -72,29 +55,10 @@ const FollowRequestsSection = ({
       return (
         <div key={request._id} className="bg-[#24272e] border border-[#282b33] p-3 hover:border-[#97ef83]/30 transition-colors duration-200 rounded-lg">
           <div className="flex items-center mb-2">
-            {displayUser.profilePicture ? (
-              <img 
-                src={`/api/images/profile/${displayUser._id}`} 
-                alt={displayUser.handle}
-                className="w-8 h-8 rounded-full object-cover mr-3"
-                onError={(e) => {
-                  // Fallback to letter if image fails to load
-                  const target = e.target as HTMLImageElement;
-                  target.style.display = 'none';
-                  const parent = target.parentElement;
-                  if (parent) {
-                    const fallback = document.createElement('div');
-                    fallback.className = "w-8 h-8 bg-[#4779ff] rounded-full flex items-center justify-center text-white font-bold mr-3";
-                    fallback.textContent = displayUser.handle.charAt(0).toUpperCase();
-                    parent.insertBefore(fallback, target.nextSibling);
-                  }
-                }}
-              />
-            ) : (
-              <div className="w-8 h-8 bg-[#4779ff] rounded-full flex items-center justify-center text-white font-bold mr-3">
-                {displayUser.handle.charAt(0).toUpperCase()}
-              </div>
-            )}
+            {/* Always use the green profile picture */}
+            <div className="w-8 h-8 bg-[#97ef83] rounded-full flex items-center justify-center text-[#1b1d22] font-bold mr-4">
+              {displayUser.handle.charAt(0).toUpperCase()}
+            </div>
             <div>
               <div className="text-[#fbfcff]">@{displayUser.handle}</div>
               <div className="text-[#a8aab0] text-xs">
